@@ -19,16 +19,6 @@
             alert(me.text());
         });
 
-    // bug
-    //$('ul.menu li a')
-    //    .hover(function () {
-    //        $(this)
-    //            .on('click',
-    //                function () {
-    //                    alert($(this).text());
-    //                });
-    //    });
-
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
     $("#sidebarToggle")
