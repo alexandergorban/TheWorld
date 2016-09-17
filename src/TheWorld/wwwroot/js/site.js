@@ -3,10 +3,6 @@
 (function () {
     $('#username').text("ASP.NET Core");
 
-    // -- or --
-    //var ele = $("#username");
-    //ele.text("ASP.NET Core");
-
     $('#main').hover(function () {
         $(this).on('mouseenter', function () {
             this.style = "background-color: #888;";
@@ -17,15 +13,6 @@
         });
     });
 
-    // -- or with JS --
-    //var main = document.getElementById("main");
-    //main.onmouseenter = function() {
-    //    main.style = "background-color: #888;";
-    //};
-    //main.onmouseleave = function() {
-    //    main.style = "";
-    //};
-
     $('ul.menu li a')
         .hover(function () {
             $(this)
@@ -35,14 +22,18 @@
                     });
         });
 
-    // -- or --
-    //var menuItems = $("ul.menu li a");
-    //menuItems.on("click",
-    //    function () {
-    //        var me = $(this);
-    //        alert(me.text());
-    //    });
+    var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
+    $("#sidebarToggle")
+        .on("click",
+            function () {
+                $sidebarAndWrapper.toggleClass("hide-sidebar");
+                if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
+                    $(this).text("Show Sidebar");
+                } else {
+                    $(this).text("Hide Sidebar");
+                }
+            });
 })();
 
 
