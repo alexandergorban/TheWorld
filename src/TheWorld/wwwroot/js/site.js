@@ -13,14 +13,21 @@
         });
     });
 
-    $('ul.menu li a')
-        .hover(function () {
-            $(this)
-                .on('click',
-                    function () {
-                        alert($(this).text());
-                    });
+    $("ul.menu li a").on("click",
+        function () {
+            var me = $(this);
+            alert(me.text());
         });
+
+    // bug
+    //$('ul.menu li a')
+    //    .hover(function () {
+    //        $(this)
+    //            .on('click',
+    //                function () {
+    //                    alert($(this).text());
+    //                });
+    //    });
 
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
