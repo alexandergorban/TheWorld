@@ -13,11 +13,11 @@
     //    });
     //});
 
-    $("ul.menu li a").on("click",
-        function () {
-            var me = $(this);
-            alert(me.text());
-        });
+    //$("ul.menu li a").on("click",
+    //    function () {
+    //        var me = $(this);
+    //        alert(me.text());
+    //    });
 
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
