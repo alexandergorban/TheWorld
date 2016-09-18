@@ -3,15 +3,15 @@
 (function () {
     $('#username').text("ASP.NET Core");
 
-    $('#main').hover(function () {
-        $(this).on('mouseenter', function () {
-            this.style = "background-color: #888;";
-        });
-    }, function () {
-        $(this).on('mouseleave', function () {
-            this.style = "";
-        });
-    });
+    //$('#main').hover(function () {
+    //    $(this).on('mouseenter', function () {
+    //        this.style = "background-color: #888;";
+    //    });
+    //}, function () {
+    //    $(this).on('mouseleave', function () {
+    //        this.style = "";
+    //    });
+    //});
 
     $("ul.menu li a").on("click",
         function () {
