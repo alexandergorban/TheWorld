@@ -14,7 +14,7 @@ input [type=text], input[type=password], textarea {
     width: 150px;
 }*/
 
-#main {
+/*#main {
     background-color: #eee;
 }
 
@@ -25,7 +25,7 @@ input [type=text], input[type=password], textarea {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+}*/
 
 .headshot {
     max-width: 50px;
