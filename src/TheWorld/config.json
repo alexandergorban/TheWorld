@@ -3,6 +3,6 @@
     "ToAddress": "gorban.alexander.y@gmail.com"
   },
   "ConnectionString": {
-    "WorldContextConnection": "Server=(localdb)\\MSSQLLocalDb;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultsSets=true;" 
+    "WorldContextConnection": "Server=(localdb)\\MSSQLLocalDb;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;" 
   } 
 }
