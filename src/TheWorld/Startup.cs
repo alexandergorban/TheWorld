@@ -76,7 +76,7 @@ namespace TheWorld
             {
                 config.MapRoute(
                     name: "Default",
-                    template: "{controller}/{action}/{ed?}",
+                    template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "App", action = "Index" }
                 );
             });
