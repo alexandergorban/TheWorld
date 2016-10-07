@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -59,7 +60,13 @@ namespace TheWorld
 
             services.AddLogging();
 
-            services.AddMvc()
+            services.AddMvc(config =>
+                {
+                    if (_env.IsEnvironment("Production"))
+                    {
+                        services.AddScoped<IMailService, DebugMailService>();
+                    }
+                })
                 .AddJsonOptions(config =>
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
