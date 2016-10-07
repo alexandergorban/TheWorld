@@ -19,7 +19,7 @@ namespace TheWorld.Models
             _userManager = userManager;
         }
 
-        public async Task EnsureSeedData()
+        public async Task EnsureSeedDataAsync()
         {
             if (await _userManager.FindByEmailAsync("alex.gorban@theworld.com") == null)
             {

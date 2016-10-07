@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -63,11 +64,19 @@ namespace TheWorld
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+
+            services.AddIdentity<WorldUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+            })
+            .AddEntityFrameworkStores<WorldContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IHostingEnvironment env, 
+        public void Configure(IApplicationBuilder app,
+            IHostingEnvironment env,
             WorldContextSeedData seeder,
             ILoggerFactory factory)
         {
@@ -87,6 +96,9 @@ namespace TheWorld
                 factory.AddDebug(LogLevel.Error);
             }
             app.UseStaticFiles();
+
+            app.UseIdentity();
+
             app.UseMvc(config =>
             {
                 config.MapRoute(
@@ -96,10 +108,7 @@ namespace TheWorld
                 );
             });
 
-            seeder.EnsureSeedData().Wait();
+            seeder.EnsureSeedDataAsync().Wait();
         }
     }
 }
-
-
-
