@@ -6,6 +6,7 @@ namespace TheWorld.Models
     public interface IWorldRepository
     {
         IEnumerable<Trip> GetAllTrips();
+        IEnumerable<Trip> GetTripsByUsername(string name);
         Trip GetTripByName(string tripName);
 
         void AddTrip(Trip trip);

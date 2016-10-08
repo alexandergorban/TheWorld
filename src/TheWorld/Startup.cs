@@ -62,12 +62,12 @@ namespace TheWorld
             services.AddLogging();
 
             services.AddMvc(config =>
+            {
+                if (_env.IsEnvironment("Production"))
                 {
-                    if (_env.IsEnvironment("Production"))
-                    {
-                        services.AddScoped<IMailService, DebugMailService>();
-                    }
-                })
+                    services.AddScoped<IMailService, DebugMailService>();
+                }
+            })
                 .AddJsonOptions(config =>
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -77,7 +77,7 @@ namespace TheWorld
             {
                 config.User.RequireUniqueEmail = true;
                 config.Password.RequiredLength = 8;
-                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+                config.Cookies.ApplicationCookie.LoginPath = "/auth/login";
                 config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
                 {
                     OnRedirectToLogin = async ctx =>
