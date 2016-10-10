@@ -1,6 +1,6 @@
 ﻿<div>
-    <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i> Back</a>
     <div class="col-md-3">
+        <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i> Back</a>
         <h3> {{ vm.tripName }}</h3>
         <wait-cursor display-when="vm.isBusy"></wait-cursor>
         <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
@@ -30,6 +30,6 @@
     </div>
     <div class="col-md-9">
         <h2>The Map</h2>
-
+        <div id="map"></div>
     </div>
 </div>
