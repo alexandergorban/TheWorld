@@ -9,7 +9,7 @@
 
             $routeProvider.when("/",
             {
-                controller: "tripController",
+                controller: "tripsController",
                 controllerAs: "vm",
                 templateUrl: "/views/tripsView.html"
             });
