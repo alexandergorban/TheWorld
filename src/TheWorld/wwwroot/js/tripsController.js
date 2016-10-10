@@ -19,6 +19,12 @@
             name: "World Trip",
             created: new Date
         }];
+
+        vm.newTrip = {};
+
+        vm.addTrip = function() {
+            alert(vm.newTrip.name);
+        };
     }
 
 })();
